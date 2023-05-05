@@ -13,6 +13,9 @@ const BlogList: FC = () => {
       <PageHeading>Documentation</PageHeading>
       <div className="flex flex-wrap justify-center">
         {loading && <Loader />}
+        {!loading && error && (
+          <div className="text-red-500 text-center">{error}</div>
+        )}
         {!loading &&
           posts.length > 0 &&
           posts.map((post) => (
