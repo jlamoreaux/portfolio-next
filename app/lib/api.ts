@@ -43,7 +43,10 @@ export const getAllPostHeadings = async () => {
     }`
     );
     return posts;
-  } catch (error) {}
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
 };
 
 export const getAllCategories = async () => {

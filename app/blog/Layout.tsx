@@ -1,8 +1,4 @@
-"use client";
-
-import React, { createContext, useState } from "react";
 import { Subheading } from "@/app/lib/types";
-import { BlogContextProvider } from "./context/blogsContext";
 import Navbar from "./components/Navbar";
 
 interface LayoutProps {
@@ -12,11 +8,10 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <BlogContextProvider>
-      <div className="flex flex-col sm:flex-row min-h-screen">
-        <Navbar />
-        <div className="flex flex-col flex-grow">{children}</div>
-      </div>
-    </BlogContextProvider>
+    <div className="flex flex-col sm:flex-row min-h-screen">
+      {/* @ts-expect-error Async Server Component */}
+      <Navbar />
+      <div className="flex flex-col flex-grow">{children}</div>
+    </div>
   );
 }
