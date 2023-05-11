@@ -1,20 +1,15 @@
-"use client";
-import { FC } from "react";
 import Card from "../components/Card";
-import { useBlogContext } from "./context/blogsContext";
 import { generateSanityImageUrl } from "../lib/sanity";
 import PageHeading from "../components/PageHeading";
-import Loader from "../components/Loader";
+import { getAllPostHeadings } from "../lib/api";
 
-const BlogList: FC = () => {
-  const { posts, loading, error } = useBlogContext();
+const BlogList = async () => {
+  const posts = await getAllPostHeadings();
   return (
     <div className="p-4">
       <PageHeading>Documentation</PageHeading>
       <div className="flex flex-wrap justify-center">
-        {loading && <Loader />}
-        {!loading &&
-          posts.length > 0 &&
+        {posts.length > 0 &&
           posts.map((post) => (
             <Card
               key={post.slug}
