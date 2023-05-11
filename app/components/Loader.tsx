@@ -13,15 +13,17 @@ const Loader: FC<LoaderProps> = ({ theme, size }) => {
     large: 240,
   };
   return (
-    <Image
-      src={
-        theme === "dark" ? "/images/logo-white.png" : "/images/logo-black.png"
-      }
-      alt="loading"
-      width={size ? sizes[size] : sizes.medium}
-      height={size ? sizes[size] : sizes.medium}
-      className="animate-spin-y infinite"
-    />
+    <div className="m-auto flex h-full justify-center">
+      <Image
+        src={
+          theme === "dark" ? "/images/logo-white.png" : "/images/logo-black.png"
+        }
+        alt="loading"
+        width={size ? sizes[size] : sizes.medium}
+        height={size ? sizes[size] : sizes.medium}
+        className="animate-spin-y infinite"
+      />
+    </div>
   );
 };
 

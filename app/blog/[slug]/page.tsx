@@ -27,7 +27,6 @@ const BlogPost: FC<BlogPostProps> = ({ params }) => {
   const [currentSubheading, setCurrentSubheading] = useState<
     Subheading | undefined
   >(undefined);
-  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -43,22 +42,16 @@ const BlogPost: FC<BlogPostProps> = ({ params }) => {
           setBody(postBody);
           setCurrentSubheading(subs[0]);
         }
-        setLoading(false);
       })
       .catch((err) => {
         setError(err.message);
-        setLoading(false);
       });
   }, [params.slug]);
 
   return (
     <div className="flex justify-center h-full">
-      {loading && (
-        <div className="m-auto content-center">
-          <Loader />
-        </div>
-      )}
-      {!loading && post && (
+      {error && <p>{error}</p>}
+      {post && (
         <>
           <article>
             {post.mainImage && (

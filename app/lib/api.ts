@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 import client from "./sanity";
-import { Category, LandingPageData, Post } from "./types";
+import { Category, LandingPageData, Post, Project } from "./types";
 import { cache } from "react";
 
 type StaticPath = {
@@ -68,7 +68,7 @@ export const getAllCategories = cache(async () => {
 });
 
 export const getAllProjects = async () => {
-  const categories = await client.fetch(
+  const projects: Project[] = await client.fetch(
     `*[_type == "project"]{
       title,
       "slug": slug.current,
@@ -79,7 +79,7 @@ export const getAllProjects = async () => {
     }`
   );
 
-  return categories;
+  return projects;
 };
 
 export const getHomePageData = async (): Promise<LandingPageData> => {

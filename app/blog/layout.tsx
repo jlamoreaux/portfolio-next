@@ -1,6 +1,7 @@
 import { Post, Subheading } from "@/app/lib/types";
 import Navbar from "./components/Navbar";
 import { getAllPostHeadings } from "../lib/api";
+import { FlexDirection, PageContainer } from "../components/PageContainer";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -34,9 +35,9 @@ export default async function Layout({ children }: LayoutProps) {
   const groupedPosts = await getGroupedPosts();
 
   return (
-    <div className="flex flex-col sm:flex-row min-h-screen">
+    <PageContainer flexDirection={FlexDirection.Row}>
       <Navbar groupedPosts={groupedPosts} />
       <div className="flex flex-col flex-grow">{children}</div>
-    </div>
+    </PageContainer>
   );
 }
