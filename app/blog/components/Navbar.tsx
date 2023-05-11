@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { GroupedPosts } from "../Layout";
 import { useParams } from "next/navigation";
+import { GroupedPosts } from "../layout";
 
 const Navbar = ({ groupedPosts }: { groupedPosts: GroupedPosts[] }) => {
   const [expandedCategory, setExpandedCategory] = useState("");
