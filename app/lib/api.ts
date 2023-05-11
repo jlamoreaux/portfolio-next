@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 import client from "./sanity";
-import { LandingPageData, Post } from "./types";
+import { Category, LandingPageData, Post } from "./types";
 
 type StaticPath = {
   params: {
@@ -50,14 +50,21 @@ export const getAllPostHeadings = async () => {
 };
 
 export const getAllCategories = async () => {
-  const categories = await client.fetch(
-    `*[_type == "category"]{
+  console.log("getAllCategories");
+  let categories: Category[] = [];
+  try {
+    categories = await client.fetch(
+      `*[_type == "category"]{
       title,
       "slug": slug.current,
     }`
-  );
-
-  return categories;
+    );
+    console.log("categories", categories);
+    return categories;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
 };
 
 export const getAllProjects = async () => {
