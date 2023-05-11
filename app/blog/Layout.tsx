@@ -1,6 +1,6 @@
 import { Post, Subheading } from "@/app/lib/types";
 import Navbar from "./components/Navbar";
-import { getAllCategories, getAllPostHeadings } from "../lib/api";
+import { getAllPostHeadings } from "../lib/api";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -31,13 +31,7 @@ const getGroupedPosts = async (): Promise<GroupedPosts[]> => {
 };
 
 export default async function Layout({ children }: LayoutProps) {
-  // const categoriesData = getAllCategories();
   const groupedPosts = await getGroupedPosts();
-
-  // const [categories, groupedPosts] = await Promise.all([
-  //   categoriesData,
-  //   groupedPostsData,
-  // ]);
 
   return (
     <div className="flex flex-col sm:flex-row min-h-screen">
