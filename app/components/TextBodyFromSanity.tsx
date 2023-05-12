@@ -53,7 +53,11 @@ const generateJSXFromBlock = (block: PostBody) => {
           );
         }
         text = child.text.replace(/\r?\n/g, "<br />");
-        return <p key={child._key}>{text}</p>;
+        return (
+          <p key={child._key} className="mb-4">
+            {text}
+          </p>
+        );
       }
       return null;
     });
