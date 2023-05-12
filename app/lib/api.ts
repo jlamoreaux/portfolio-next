@@ -3,16 +3,7 @@ import client from "./sanity";
 import { Category, LandingPageData, Post, Project } from "./types";
 import { cache } from "react";
 
-type StaticPath = {
-  params: {
-    slug: string;
-  };
-  locale?: string | undefined;
-};
-
-export const getPost = async ({ params }: StaticPath) => {
-  const { slug } = params || {}; // set default value of {} in case params is undefined
-
+export const getPost = async (slug: string) => {
   const post = (await client.fetch(
     groq`*[_type == "post" && slug.current == $slug][0]{
       title,

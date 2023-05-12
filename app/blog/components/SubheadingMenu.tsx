@@ -1,6 +1,7 @@
-import { Subheading } from "@/app/lib/types";
+"use client"
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Subheading } from "@/app/lib/types";
 
 interface Props {
   subheadings?: Subheading[];
