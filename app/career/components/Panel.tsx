@@ -60,16 +60,16 @@ export const TimelinePanel = ({
   return (
     <div
       className={
-        "flex relative items-center cursor-pointer font-bold text-gray-800 h-20"
+        "flex flex-col w-full md:flex-row relative items-center cursor-pointer font-bold text-gray-800 h-20"
       }
       onClick={onClick}
     >
       <div
-        className={`h-4 w-4 rounded-full bg-gray-500 mr-4 transition duration-1000 ease-in-out ${
+        className={`h-4 w-4 rounded-full bg-gray-500 mr-4 mb-2 transition duration-1000 ease-in-out ${
           active ? "" : "opacity-50"
         }`}
       ></div>
-      <div className="flex justify-center text-3xl font-mono w-28">
+      <div className="flex justify-center text-3xl font-mono w-full">
         {active && <TimelineDate date={date} />}
       </div>
     </div>

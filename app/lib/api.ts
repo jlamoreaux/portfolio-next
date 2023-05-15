@@ -92,6 +92,5 @@ export const getWorkExperience = async () => {
     description,
   }`;
   const data = await client.fetch(query);
-  console.log(data);
   return data;
 };

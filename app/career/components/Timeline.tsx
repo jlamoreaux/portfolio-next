@@ -20,10 +20,9 @@ const Timeline = ({ experience }: { experience: WorkExperience[] }) => {
   });
 
   return (
-    <div className="flex flex-col mt-48 w-full h-full justify-center">
-      <div className="flex flex-row relative justify-center items-stretch">
-        <div className="flex flex-col grow justify-around">
-          {/* up arrow to decrement activeIndex */}
+    <div className="flex w-full h-full grow justify-center">
+      <div className="flex flex-row flex-wrap md:flex-nowrap relative justify-center grow items-center">
+        <div className="flex flex-row md:flex-col justify-around max-h-96 w-full md:w-40">
           <div
             className={`${
               activeIndex <= 0 ? "opacity-50" : "cursor-pointer"
