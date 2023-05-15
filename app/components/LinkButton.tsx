@@ -24,7 +24,7 @@ const LinkButton: FC<LinkButtonProps> = ({
       className={`mx-4 w-fit sm:mx-10 my-4 text-sm sm:text-lg flex items-center justify-center py-2 px-4 rounded border hover:border-gray-800 transition duration-300 ease-in-out
                 ${
                   style === "primary"
-                    ? "bg-gray-800 hover:bg-white text-gray-800 text-white hover:text-gray-800"
+                    ? "bg-gray-800 hover:bg-white text-white hover:text-gray-800"
                     : "bg-transparent text-gray-800 border-gray-200"
                 }`}
     >
