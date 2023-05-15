@@ -103,9 +103,8 @@ export type LandingPageData = {
 
 export type WorkExperience = {
   title: string;
-  position: string;
   company: string;
   startDate: string;
   endDate?: string;
-  description: string;
+  description: string[];
 };

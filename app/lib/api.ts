@@ -42,7 +42,6 @@ export const getAllPostHeadings = cache(async () => {
 });
 
 export const getAllCategories = cache(async () => {
-  console.log("getAllCategories");
   let categories: Category[] = [];
   try {
     categories = await client.fetch(
@@ -93,5 +92,6 @@ export const getWorkExperience = async () => {
     description,
   }`;
   const data = await client.fetch(query);
+  console.log(data);
   return data;
 };

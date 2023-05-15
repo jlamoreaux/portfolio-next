@@ -1,52 +1,76 @@
+import React from "react";
+import dynamic from "next/dynamic";
+
+const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
+  ssr: false,
+});
+
 interface TimelinePanelProps {
-  company: string;
-  startDate: string;
   active: boolean;
-  // onClick: () => void;
+  date: string;
+  onClick: () => void;
 }
 
 interface TimelineItemProps {
+  company: string;
+  startDate: string;
   position: string;
-  description: string;
-  active: boolean;
+  description: string[];
 }
 
+export const TimelineDate = ({ date }: { date: string }) => {
+  const year = date.split("-")[0];
+  const convertedYear = parseInt(year);
+  return <AnimatedNumbers animateToNumber={convertedYear} locale="en-US" />;
+};
+
 export const TimelineItem = ({
+  company,
   position,
   description,
-  active,
 }: TimelineItemProps) => {
   return (
-    <div
-      className={`py-4 ${active ? "block" : "hidden"}
-    `}
-    >
-      <div className="font-bold">{position}</div>
-      <div className="text-sm">{description}</div>
+    <div className="flex w-full items-center">
+      <div
+        className="p-4 w-full h-96 mx-8 border-2 border-gray-400 bg-gray-700 text-gray-100 
+        rounded-md transition duration-1000 ease-in-out overflow-y-auto shadow-xl font-mono"
+        style={{ transition: "opacity 0.5s" }}
+      >
+        <div className="font-bold text-2xl">{company}</div>
+        <div>{position}</div>
+        <div className="text-sm m-4">
+          <ul>
+            {description.map((desc, index) => (
+              <li key={index} className="list-disc py-2">
+                {desc}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
 
 export const TimelinePanel = ({
-  company,
-  startDate,
   active,
-}: // onClick,
-TimelinePanelProps) => {
+  date,
+  onClick,
+}: TimelinePanelProps) => {
   return (
     <div
-      className={`flex items-center cursor-pointer
-       ${active ? "font-bold text-gray-800" : "text-gray-500"}`}
-      // onClick={onClick}
+      className={
+        "flex relative items-center cursor-pointer font-bold text-gray-800 h-20"
+      }
+      onClick={onClick}
     >
       <div
         className={`h-4 w-4 rounded-full bg-gray-500 mr-4 transition duration-1000 ease-in-out ${
           active ? "" : "opacity-50"
         }`}
       ></div>
-      <div>
-        <div className="font-bold">{company}</div>
-        <div className="text-sm">{startDate}</div>
+      <div className="flex justify-center text-3xl font-mono w-28">
+        {active && <TimelineDate date={date} />}
       </div>
     </div>
   );
