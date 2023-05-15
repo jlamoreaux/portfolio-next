@@ -41,8 +41,8 @@ const Header: React.FC<HeaderProps> = ({
               className={`mr-4 ${isLogoHovered ? "animate-spin-y" : ""}`}
             />
             <div>
-              <h1>{siteName}</h1>
-              <h2 className="text-xl font-normal">{siteSubtitle}</h2>
+              <h1 className="mt-0">{siteName}</h1>
+              <h2 className="text-xl font-normal mt-0">{siteSubtitle}</h2>
             </div>
           </div>
         </Link>
