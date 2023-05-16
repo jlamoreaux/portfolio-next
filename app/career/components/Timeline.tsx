@@ -6,6 +6,7 @@ import { ArrowDown, ArrowUp } from "tabler-icons-react";
 
 const Timeline = ({ experience }: { experience: WorkExperience[] }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  if (!experience.length) return null;
 
   const handlePanelClick = (index: number) => {
     if (index < 0 || index >= experience.length) return;

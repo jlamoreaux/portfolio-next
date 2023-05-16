@@ -4,6 +4,8 @@ import { getHomePageData } from "@/app/lib/api";
 
 const LandingPage = async () => {
   const homePageData = await getHomePageData();
+  if (!homePageData) return null;
+
   const { body: welcomeText } = generateTextFromBlocks(
     homePageData.welcomeText
   );
