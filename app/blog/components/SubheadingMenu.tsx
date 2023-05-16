@@ -1,6 +1,7 @@
-import { Subheading } from "@/app/lib/types";
+"use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Subheading } from "@/app/lib/types";
 
 interface Props {
   subheadings?: Subheading[];
@@ -10,7 +11,7 @@ interface Props {
 export const SubheadingMenu = ({ subheadings, currentSubheading }: Props) => {
   const path = usePathname();
   return (
-    <div className="sticky top-20 w-40 p-4">
+    <div className="md:sticky top-20 w-full hidden md:block md:w-40 p-4">
       <h2 className="font-bold text-gray-500 uppercase tracking-wide mb-2">
         On this page
       </h2>

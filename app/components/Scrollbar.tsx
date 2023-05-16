@@ -6,22 +6,35 @@ type Props = {
 };
 
 const Scrollbar: FC<Props> = ({ children }) => {
+  const viewStyle = {
+    overflowY: "auto",
+    paddingRight: "8px", // Add space for the scrollbar
+  };
+
+  const thumbStyle = {
+    backgroundColor: "#ccc",
+    borderRadius: "50%",
+    width: "8px",
+    right: "-2px", // Adjust the thumb position
+  };
+
+  const trackStyle = {
+    backgroundColor: "#ddd",
+    width: "16px",
+    right: "2px", // Adjust the track position
+  };
+
   return (
     <Scrollbars
       universal={true}
-      thumbMinSize={30}
-      // renderThumbVertical={({ style }) => (
-      //   <div
-      //     className="bg-gray-300 rounded-full"
-      //     style={{ ...style, right: "2px", bottom: "2px" }}
-      //   />
-      // )}
-      // renderTrackVertical={({ style }) => (
-      //   <div
-      //     className="bg-gray-200 rounded-full"
-      //     style={{ ...style, right: "2px", bottom: "2px" }}
-      //   />
-      // )}
+      style={{ width: "100%", height: "400px" }}
+      renderView={({ style }) => <div style={{ ...style, ...viewStyle }} />}
+      renderThumbVertical={({ style }) => (
+        <div style={{ ...style, ...thumbStyle }} />
+      )}
+      renderTrackVertical={({ style }) => (
+        <div style={{ ...style, ...trackStyle }} />
+      )}
     >
       {children}
     </Scrollbars>

@@ -6,7 +6,7 @@ export async function GET(
   { params }: { params: { slug: string } }
 ) {
   try {
-    const posts = await getPost({ params });
+    const posts = await getPost(params.slug);
     return NextResponse.json({ body: posts });
   } catch (error) {
     return NextResponse.json(error);
