@@ -79,7 +79,6 @@ export const getHomePageData = async (): Promise<LandingPageData> => {
       callToActionLink,
     }`;
   const data = await client.fetch(query);
-  console;
   return data;
 };
 
