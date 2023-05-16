@@ -16,20 +16,18 @@ const BlogPost = async ({ params }: BlogPostProps) => {
   const { subheadings, body } = generateTextFromBlocks(post.body);
 
   return (
-    <div className="flex justify-center h-full">
-      <article>
-        {post.mainImage && (
-          <Image
-            src={generateSanityImageUrl({
-              imageId: post.mainImage.asset._ref,
-            })}
-            alt={post.title}
-            className="w-full"
-            width={600}
-            height={200}
-            style={{ maxHeight: 200, objectFit: "cover" }}
-          />
-        )}
+    <div className="flex flex-row justify-center h-full">
+      <article className="flex flex-col items-center">
+        <Image
+          src={generateSanityImageUrl({
+            imageId: post.mainImage.asset._ref,
+          })}
+          alt={post.title}
+          className="w-screen md:w-full"
+          width={600}
+          height={200}
+          style={{ maxHeight: 200, maxWidth: "100vw", objectFit: "cover" }}
+        />
         <div className="max-w-3xl mx-auto p-8">
           <BlogHeading>{post.title}</BlogHeading>
           <h4 className="italic">By {post.author?.name}</h4>

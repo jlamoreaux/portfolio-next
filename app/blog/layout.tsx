@@ -35,9 +35,11 @@ export default async function Layout({ children }: LayoutProps) {
   const groupedPosts = await getGroupedPosts();
 
   return (
-    <PageContainer flexDirection={FlexDirection.Row}>
-      <Navbar groupedPosts={groupedPosts} />
-      <div className="flex flex-col flex-grow">{children}</div>
+    <PageContainer>
+      <div className="flex flex-col-reverse md:flex-row grow h-full">
+        <Navbar groupedPosts={groupedPosts} />
+        <div className="flex flex-col flex-grow">{children}</div>
+      </div>
     </PageContainer>
   );
 }
