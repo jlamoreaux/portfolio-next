@@ -13,7 +13,7 @@ interface BlogPostProps {
 }
 export async function generateMetadata(
   { params }: BlogPostProps,
-  parent?: ResolvingMetadata
+  parent: ResolvingMetadata
 ): Promise<Metadata> {
   // fetch data
   const post = await getPost(params.slug);
@@ -30,7 +30,7 @@ export async function generateMetadata(
   )}`;
 
   return {
-    title: `${(await parent)?.title?.absolute} | ${post.title}`,
+    title: `${(await parent).title?.absolute} | ${post.title}`,
     authors: [post.author],
     openGraph: {
       images: [imageUrl, ...previousImages],
