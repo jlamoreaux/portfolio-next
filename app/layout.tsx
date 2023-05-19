@@ -26,6 +26,8 @@ export const metadata = {
     creator: "@jlmx_in_atx",
     site: "@jlmx_in_atx",
     card: "summary_large_image",
+    title,
+    description,
   },
 };
 
