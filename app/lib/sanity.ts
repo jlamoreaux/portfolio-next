@@ -24,6 +24,7 @@ type GenerateSanityImageUrlProps =
 
 export const generateSanityImageUrl = (params: GenerateSanityImageUrlProps) => {
   let { imageId } = params;
+  if (!imageId) return "";
   let dimensions = "";
   if ("width" in params && "height" in params) {
     dimensions = `?w=${params.width}&h=${params.height}`;

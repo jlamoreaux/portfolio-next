@@ -4,24 +4,52 @@ import { getPost } from "@/app/lib/api";
 import { generateTextFromBlocks } from "@/app/components/TextBodyFromSanity";
 import { SubheadingMenu } from "../components/SubheadingMenu";
 import BlogHeading from "../components/BlogHeading";
+import { Metadata, ResolvingMetadata } from "next";
 
 interface BlogPostProps {
   params: {
     slug: string;
   };
 }
+export async function generateMetadata(
+  { params }: BlogPostProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // fetch data
+  const post = await getPost(params.slug);
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent)?.openGraph?.images || [];
+
+  const imageUrl = `/api/og?title=${encodeURIComponent(
+    post.title
+  )}&author=${encodeURIComponent(post.author?.name)}&date=${
+    post.publishedAt
+  }&imageUrl=${encodeURIComponent(
+    generateSanityImageUrl({ imageId: post.mainImage.asset._ref })
+  )}`;
+
+  return {
+    title: `${(await parent).title?.absolute} | ${post.title}`,
+    authors: [post.author],
+    openGraph: {
+      images: [imageUrl, ...previousImages],
+    },
+  };
+}
 
 const BlogPost = async ({ params }: BlogPostProps) => {
   const post = await getPost(params.slug);
   const { subheadings, body } = generateTextFromBlocks(post.body);
+  const imageUrl = generateSanityImageUrl({
+    imageId: post.mainImage.asset._ref,
+  });
 
   return (
     <div className="flex flex-row justify-center h-full">
       <article className="flex flex-col items-center">
         <Image
-          src={generateSanityImageUrl({
-            imageId: post.mainImage.asset._ref,
-          })}
+          src={imageUrl}
           alt={post.title}
           className="w-screen md:w-full"
           width={600}

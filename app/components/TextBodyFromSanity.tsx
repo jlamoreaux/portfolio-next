@@ -67,12 +67,12 @@ const generateJSXFromBlock = (block: PostBody) => {
 };
 
 export const generateTextFromBlocks = (block: PostBody[]) => {
-  const body = block.map((block, index) => {
+  const body = block?.map((block, index) => {
     return <div key={index}> {generateJSXFromBlock(block)} </div>;
   });
 
   const subheadings = block
-    .filter((block) =>
+    ?.filter((block) =>
       ["h1", "h2", "h3", "h4", "h5", "h6"].includes(block.style)
     )
     .map((block) => {

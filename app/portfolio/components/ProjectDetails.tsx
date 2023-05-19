@@ -38,6 +38,8 @@ const ProjectDetails: FC<Props> = ({
           <Link
             href={liveDemoUrl}
             className="text-base font-medium text-gray-500 hover:text-gray-900 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <Globe
               style={{
@@ -50,6 +52,8 @@ const ProjectDetails: FC<Props> = ({
         <Link
           href={sourceCodeUrl}
           className="text-base font-medium text-gray-500 hover:text-gray-900 hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <BrandGithub
             style={{
