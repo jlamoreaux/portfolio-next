@@ -112,7 +112,6 @@ export const getAboutMe = async () => {
   try {
     const response = await client.fetch(query);
     data = response[0];
-    console.log(data);
   } catch (error) {
     console.error(error);
   }
