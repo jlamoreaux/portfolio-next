@@ -27,7 +27,7 @@ export const GET = (req: NextRequest) => {
           <div tw="text-5xl font-extrabold mb-4">{title}</div>
           <div tw="text-2xl">{author}</div>
           <div tw="text-xl">
-            {date.toLocaleDateString("en-US", { dateStyle: "long" })}
+            {date?.toLocaleDateString("en-US", { dateStyle: "long" })}
           </div>
         </div>
       </div>
