@@ -1,7 +1,14 @@
 import { groq } from "next-sanity";
 import client from "./sanity";
-import { Category, LandingPageData, Post, Project } from "./types";
+import {
+  Category,
+  LandingPageData,
+  Post,
+  PostBodyImage,
+  Project,
+} from "./types";
 import { cache } from "react";
+import { PostBody } from "./types";
 
 export const getPost = async (slug: string) => {
   const post = (await client.fetch(
@@ -91,5 +98,23 @@ export const getWorkExperience = async () => {
     description,
   }`;
   const data = await client.fetch(query);
+  return data;
+};
+
+export const getAboutMe = async () => {
+  let data: { title: string; aboutMeText: PostBody[]; image: PostBodyImage } =
+    {} as any;
+  const query = `*[_type == "aboutMe"]{
+    title,
+    aboutMeText,
+    image,
+  }`;
+  try {
+    const response = await client.fetch(query);
+    data = response[0];
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
   return data;
 };

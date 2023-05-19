@@ -30,7 +30,7 @@ type PostBodyBase = {
   style: string;
 };
 
-type PostBodyImage = PostBodyBase & {
+export type PostBodyImage = PostBodyBase & {
   _type: "image";
   asset: {
     _ref: string;

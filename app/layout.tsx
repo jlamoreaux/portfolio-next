@@ -13,6 +13,14 @@ export const metadata = {
     url: "https://jlmx.dev",
     title,
     description,
+    images: [
+      {
+        url: "https://jlmx.dev/images/logo-black.png",
+        width: 1200,
+        height: 630,
+        alt: title,
+      },
+    ],
   },
   twitter: {
     creator: "@jlmx_in_atx",
