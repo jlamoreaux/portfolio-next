@@ -7,7 +7,9 @@ import About from "./components/About";
 
 const Experience = async () => {
   const experience: WorkExperience[] = await getWorkExperience();
-  const { title, aboutMeText, image } = await getAboutMe();
+  const AboutData = await getAboutMe();
+  if (!AboutData) return null;
+  const { title, aboutMeText, image } = AboutData;
 
   return (
     <PageContainer>
