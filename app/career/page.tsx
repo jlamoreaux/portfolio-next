@@ -8,13 +8,15 @@ import About from "./components/About";
 const Experience = async () => {
   const experience: WorkExperience[] = await getWorkExperience();
   const AboutData = await getAboutMe();
-  if (!AboutData) return null;
-  const { title, aboutMeText, image } = AboutData;
 
   return (
     <PageContainer>
       <PageHeading>Who Am I?</PageHeading>
-      <About title={title} aboutMeText={aboutMeText} image={image} />
+      <About
+        title={AboutData?.title}
+        aboutMeText={AboutData?.aboutMeText}
+        image={AboutData?.image}
+      />
       <h2 className="text-3xl font-bold text-center pb-4">My Career</h2>
       <Timeline experience={experience} />
     </PageContainer>

@@ -26,7 +26,24 @@ export const metadata = {
     creator: "@jlmx_in_atx",
     site: "@jlmx_in_atx",
     card: "summary_large_image",
+    title,
+    description,
   },
+  keywords: [
+    "Jordan Lamoreaux",
+    "Jordan",
+    "Lamoreaux",
+    "jlmx",
+    "jlmx.dev",
+    "jlmx_in_atx",
+    "Full Stack Developer",
+    "Austin, TX",
+    "Developers in Austin",
+    "Developers in Austin, TX",
+    "Developers in Austin, Texas",
+    "Developers in Austin Texas",
+    "Hexle",
+  ],
 };
 
 export default function RootLayout({
