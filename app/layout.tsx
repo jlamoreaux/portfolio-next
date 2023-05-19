@@ -42,6 +42,7 @@ export const metadata = {
     "Developers in Austin, TX",
     "Developers in Austin, Texas",
     "Developers in Austin Texas",
+    "Hexle",
   ],
 };
 
