@@ -29,6 +29,20 @@ export const metadata = {
     title,
     description,
   },
+  keywords: [
+    "Jordan Lamoreaux",
+    "Jordan",
+    "Lamoreaux",
+    "jlmx",
+    "jlmx.dev",
+    "jlmx_in_atx",
+    "Full Stack Developer",
+    "Austin, TX",
+    "Developers in Austin",
+    "Developers in Austin, TX",
+    "Developers in Austin, Texas",
+    "Developers in Austin Texas",
+  ],
 };
 
 export default function RootLayout({
