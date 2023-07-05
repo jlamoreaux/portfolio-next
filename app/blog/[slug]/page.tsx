@@ -19,7 +19,7 @@ export async function generateMetadata(
   const post = await getPost(params.slug);
 
   // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent)?.openGraph?.images || [];
+  // const previousImages = (await parent)?.openGraph?.images || [];
 
   const imageUrl = `/api/og?title=${encodeURIComponent(
     post.title
@@ -33,7 +33,7 @@ export async function generateMetadata(
     title: `${(await parent).title?.absolute} | ${post.title}`,
     authors: [post.author],
     openGraph: {
-      images: [imageUrl, ...previousImages],
+      images: [imageUrl],
     },
   };
 }
