@@ -25,8 +25,9 @@ export async function generateMetadata(
     post.title
   )}&author=${encodeURIComponent(post.author?.name)}&date=${
     post.publishedAt
-  }&imageUrl=${encodeURIComponent(
-    generateSanityImageUrl({ imageId: post.mainImage.asset._ref })
+  }&imageUrl=${encodeURIComponent( post.mainImage ?
+    generateSanityImageUrl({ imageId: post.mainImage.asset._ref }) :
+    ""
   )}`;
 
   return {
@@ -41,9 +42,9 @@ export async function generateMetadata(
 const BlogPost = async ({ params }: BlogPostProps) => {
   const post = await getPost(params.slug);
   const { subheadings, body } = generateTextFromBlocks(post.body);
-  const imageUrl = generateSanityImageUrl({
+  const imageUrl = post.mainImage ? generateSanityImageUrl({
     imageId: post.mainImage.asset._ref,
-  });
+  }): "";
 
   return (
     <div className="flex flex-row justify-center h-full">
@@ -70,7 +71,6 @@ const BlogPost = async ({ params }: BlogPostProps) => {
         </div>
       </article>
       <SubheadingMenu
-        key={"subheadings"}
         subheadings={subheadings}
         currentSubheading={{ title: "Top", key: "top" }}
       />

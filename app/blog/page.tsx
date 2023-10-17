@@ -15,9 +15,9 @@ const BlogList = async () => {
               key={post.slug}
               title={post.title}
               description={post.description || ""}
-              imageSrc={generateSanityImageUrl({
+              imageSrc={ post.mainImage ? generateSanityImageUrl({
                 imageId: post.mainImage.asset._ref,
-              })}
+              }) : ""}
               imageAlt={post.title}
               linkText="Read More"
               link={`/blog/${post.slug}`}
