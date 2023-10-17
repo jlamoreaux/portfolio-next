@@ -73,7 +73,7 @@ export const generateTextFromBlocks = (block: PostBody[]) => {
 
   const subheadings = block
     ?.filter((block) =>
-      ["h1", "h2", "h3", "h4", "h5", "h6"].includes(block.style)
+      ["h2"].includes(block.style)
     )
     .map((block) => {
       return {

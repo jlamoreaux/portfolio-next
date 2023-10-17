@@ -9,7 +9,7 @@ export type Post = {
       alt: string;
     };
   };
-  mainImage: {
+  mainImage?: {
     _type: string;
     asset: {
       _ref: string;

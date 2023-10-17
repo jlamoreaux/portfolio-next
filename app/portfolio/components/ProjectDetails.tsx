@@ -22,7 +22,7 @@ const ProjectDetails: FC<Props> = ({
   return (
     <div
       className={`absolute bottom-0 left-0 p-6 w-full h-full flex-auto flex flex-col flex-end justify-end bg-gradient-to-b from-transparent from-20% to-white to-75% transform transition-transform duration-300 ${
-        isHovered ? "lg:-translate-y-0" : "lg:translate-y-12"
+        isHovered ? "md:translate-y-0" : "md:translate-y-12"
       }`}
     >
       <div>
