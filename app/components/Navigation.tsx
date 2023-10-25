@@ -1,6 +1,5 @@
-"use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Menu } from "tabler-icons-react";
 
 export type NavLink = {
@@ -13,11 +12,8 @@ type NavigationProps = {
 };
 
 const Navigation = ({ navLinks }: NavigationProps) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  // set mobileMenuOpen to false when navigating to a new page
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, []);
+  let mobileMenuOpen = false;
+  const setMobileMenuOpen = (value: boolean) => (mobileMenuOpen = value);
 
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 

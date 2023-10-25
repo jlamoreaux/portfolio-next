@@ -1,4 +1,4 @@
-import { generateTextFromBlocks } from "@/app/components/TextBodyFromSanity";
+import { generateTextFromBlocks } from "@/app/components/Subheadings";
 import { getAboutMe } from "@/app/lib/api";
 import { generateSanityImageUrl } from "@/app/lib/sanity";
 import { PostBody, PostBodyImage } from "@/app/lib/types";

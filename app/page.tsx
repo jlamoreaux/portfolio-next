@@ -1,17 +1,14 @@
-import { generateTextFromBlocks } from "./components/TextBodyFromSanity";
 import LinkButton from "./components/LinkButton";
 import { getHomePageData } from "@/app/lib/api";
+import { PortableText } from "@portabletext/react";
 
 const LandingPage = async () => {
   const homePageData = await getHomePageData();
   if (!homePageData) return null;
 
-  const { body: welcomeText } = generateTextFromBlocks(
-    homePageData.welcomeText
-  );
-  const { body: welcomeSubtext } = generateTextFromBlocks(
-    homePageData.welcomeSubtext
-  );
+  const welcomeText =
+    <PortableText value={homePageData.welcomeText} />
+  const welcomeSubtext = <PortableText value={homePageData.welcomeSubtext} />
 
   function getAnimationByIndex(index: number) {
     return {
@@ -25,18 +22,19 @@ const LandingPage = async () => {
     <section className="flex flex-col items-center justify-center flex-grow py-8">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-6xl font-bold leading-tight text-center text-gray-900 md:mb-4">
-          {welcomeText.map((element, index) => {
+          {/* {welcomeText.map((element, index) => {
             const elem = (
               <div key={index} className={getAnimationByIndex(index)}>
                 {element}
               </div>
             );
             return elem;
-          })}
+          })} */}
+          {welcomeText}
         </h2>
         <div className="w-full mb-16">
           <h3 className="mx-auto gradient opacity-25 rounded-t text-center text-l md:text-3xl w-full">
-            {...welcomeSubtext}
+            {welcomeSubtext}
           </h3>
         </div>
         <div className="flex justify-center w-full px-4 mb-8">

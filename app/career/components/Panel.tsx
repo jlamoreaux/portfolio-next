@@ -1,9 +1,10 @@
 import React from "react";
+import AnimatedNumbers from "react-animated-numbers";
 import dynamic from "next/dynamic";
 
-const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
-  ssr: false,
-});
+// const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
+//   ssr: false,
+// });
 
 interface TimelinePanelProps {
   active: boolean;
@@ -21,7 +22,9 @@ interface TimelineItemProps {
 export const TimelineDate = ({ date }: { date: string }) => {
   const year = date.split("-")[0];
   const convertedYear = parseInt(year);
-  return <AnimatedNumbers animateToNumber={convertedYear} locale="en-US" />;
+  return <>
+    <AnimatedNumbers animateToNumber={convertedYear} locale="en-US" />;
+  </> 
 };
 
 export const TimelineItem = ({

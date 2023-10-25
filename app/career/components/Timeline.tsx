@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from "react";
 import { TimelinePanel, TimelineItem } from "./Panel";
 import { WorkExperience } from "@/app/lib/types";

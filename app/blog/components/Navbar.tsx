@@ -1,19 +1,18 @@
 "use client";
-import { useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { GroupedPosts } from "../layout";
 
 const Navbar = ({ groupedPosts }: { groupedPosts: GroupedPosts[] }) => {
-  const [expandedCategory, setExpandedCategory] = useState("");
+  let expandedCategory = "";
   const params = useParams();
 
   const handleCategoryClick = (slug: string) => {
     if (expandedCategory === slug) {
-      setExpandedCategory("");
+      expandedCategory = "";
       return;
     }
-    setExpandedCategory(slug);
+    return expandedCategory = slug;
   };
 
   const categories = groupedPosts.map((group) => ({
