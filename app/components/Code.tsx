@@ -1,4 +1,4 @@
-import { PortableTextComponentProps, PortableTextReactComponents, PortableTextTypeComponentProps } from "@portabletext/react";
+import { PortableTextComponentProps } from "@portabletext/react";
 import React, { FC } from "react";
 import Refractor from "react-refractor";
 import js from "refractor/lang/javascript";

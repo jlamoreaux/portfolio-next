@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import Navigation, { NavLink } from "./Navigation";
-import { useState } from "react";
 
 interface HeaderProps {
   siteName: string;
