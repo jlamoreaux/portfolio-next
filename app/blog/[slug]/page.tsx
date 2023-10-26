@@ -50,7 +50,7 @@ const BlogPost = async ({ params }: BlogPostProps) => {
 
   return (
     <div className="flex flex-row justify-center h-full">
-      <article className="flex flex-col items-center">
+      <article className="flex flex-col items-center w-fit max-w-full">
         <Image
           src={imageUrl}
           alt={post.title}
@@ -59,7 +59,7 @@ const BlogPost = async ({ params }: BlogPostProps) => {
           height={200}
           style={{ maxHeight: 200, maxWidth: "100vw", objectFit: "cover" }}
         />
-        <div className="max-w-3xl mx-auto p-8">
+        <div className="max-w-3xl w-full mx-auto p-8">
           <BlogHeading>{post.title}</BlogHeading>
           <h4 className="italic">By {post.author?.name}</h4>
           <p className="text-sm mb-8">
