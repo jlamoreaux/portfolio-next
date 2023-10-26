@@ -5,19 +5,7 @@ import { generateSubheadings } from "@/app/components/Subheadings";
 import { SubheadingMenu } from "../components/SubheadingMenu";
 import BlogHeading from "../components/BlogHeading";
 import { Metadata, ResolvingMetadata } from "next";
-import { PortableText, PortableTextReactComponents } from "@portabletext/react";
-import Code from "@/app/components/Code";
-
-const components: Partial<PortableTextReactComponents> = {
-  types: {
-    code: Code,
-  },
-  block: {
-      normal: ({ children }) => {
-        return <p className="mb-4">{children}</p>;
-      }
-  }
-};
+import SanityText from "@/app/components/SanityText";
 
 interface BlogPostProps {
   params: {
@@ -82,7 +70,7 @@ const BlogPost = async ({ params }: BlogPostProps) => {
             })}
           </p>
           <div className="post-body">
-            <PortableText components={components} value={post.body} />
+            <SanityText value={post.body} />
           </div>
         </div>
       </article>

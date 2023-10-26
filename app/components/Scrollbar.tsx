@@ -25,19 +25,20 @@ const Scrollbar: FC<Props> = ({ children }) => {
   };
 
   return (
-    <Scrollbars
-      universal={true}
-      style={{ width: "100%", height: "400px" }}
-      renderView={({ style }) => <div style={{ ...style, ...viewStyle }} />}
-      renderThumbVertical={({ style }) => (
-        <div style={{ ...style, ...thumbStyle }} />
-      )}
-      renderTrackVertical={({ style }) => (
-        <div style={{ ...style, ...trackStyle }} />
-      )}
-    >
-      {children}
-    </Scrollbars>
+    // <Scrollbars
+    //   universal={true}
+    //   style={{ width: "100%", height: "400px" }}
+    //   renderView={({ style }) => <div style={{ ...style, ...viewStyle }} />}
+    //   renderThumbVertical={({ style }) => (
+    //     <div style={{ ...style, ...thumbStyle }} />
+    //   )}
+    //   renderTrackVertical={({ style }) => (
+    //     <div style={{ ...style, ...trackStyle }} />
+    //   )}
+    // >
+    //   {children}
+    //   </Scrollbars>
+    <></>
   );
 };
 
