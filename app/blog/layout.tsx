@@ -1,7 +1,7 @@
 import { Post, Subheading } from "@/app/lib/types";
 import Navbar from "./components/Navbar";
 import { getAllPostHeadings } from "../lib/api";
-import { FlexDirection, PageContainer } from "../components/PageContainer";
+import { PageContainer } from "../components/PageContainer";
 
 interface LayoutProps {
   children: React.ReactNode;

@@ -36,5 +36,16 @@ h6 {
   font-weight: 200;
 }
 
+code[class*="language-"].text-sm,
+pre[class*="language-"].text-sm 
+{
+  
+  font-size: 0.8rem;
+};
+
+article > p {
+  margin: 1em 0;
+}
+
 @tailwind components;
 @tailwind utilities;

@@ -1,16 +1,18 @@
 import Image from "next/image";
 import { generateSanityImageUrl } from "@/app/lib/sanity";
 import { getPost } from "@/app/lib/api";
-import { generateTextFromBlocks } from "@/app/components/TextBodyFromSanity";
+import { generateSubheadings } from "@/app/components/Subheadings";
 import { SubheadingMenu } from "../components/SubheadingMenu";
 import BlogHeading from "../components/BlogHeading";
 import { Metadata, ResolvingMetadata } from "next";
+import SanityText from "@/app/components/SanityText";
 
 interface BlogPostProps {
   params: {
     slug: string;
   };
 }
+
 export async function generateMetadata(
   { params }: BlogPostProps,
   parent: ResolvingMetadata
@@ -41,7 +43,7 @@ export async function generateMetadata(
 
 const BlogPost = async ({ params }: BlogPostProps) => {
   const post = await getPost(params.slug);
-  const { subheadings, body } = generateTextFromBlocks(post.body);
+  const subheadings = generateSubheadings(post.body);
   const imageUrl = post.mainImage ? generateSanityImageUrl({
     imageId: post.mainImage.asset._ref,
   }): "";
@@ -67,7 +69,9 @@ const BlogPost = async ({ params }: BlogPostProps) => {
               year: "numeric",
             })}
           </p>
-          <div className="post-body">{...body}</div>
+          <div className="post-body">
+            <SanityText value={post.body} />
+          </div>
         </div>
       </article>
       <SubheadingMenu

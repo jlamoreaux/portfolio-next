@@ -21,6 +21,7 @@ interface TimelineItemProps {
 export const TimelineDate = ({ date }: { date: string }) => {
   const year = date.split("-")[0];
   const convertedYear = parseInt(year);
+  {/* @ts-expect-error Server Component */} 
   return <AnimatedNumbers animateToNumber={convertedYear} locale="en-US" />;
 };
 

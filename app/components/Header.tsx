@@ -14,7 +14,8 @@ const Header: React.FC<HeaderProps> = ({
   siteSubtitle,
   navLinks,
 }) => {
-  const [isLogoHovered, setIsLogoHovered] = useState(false);
+  let isLogoHovered = false;
+  const setIsLogoHovered = (value: boolean) => isLogoHovered = value;
 
   const handleLogoHover = () => {
     setIsLogoHovered(true);

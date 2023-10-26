@@ -26,7 +26,12 @@ export type Post = {
 type PostBodyBase = {
   _key: string;
   children: PostBody[];
-  markDefs: [];
+  markDefs: {
+    _key: string;
+    _type: string;
+    href: string;
+  }[];
+  marks: string[];
   style: string;
 };
 

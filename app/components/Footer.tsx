@@ -21,11 +21,6 @@ const Footer: FC<FooterProps> = ({ siteTitle }) => {
         </p>
         <div className="flex items-center">
           <SocialLink
-            platform="Bluesky"
-            Icon={Butterfly}
-            link="https://bsky.app/profile/jlmx.dev"
-          />
-          <SocialLink
             platform="Twitter"
             Icon={BrandTwitter}
             link="https://twitter.com/jlmx_in_atx"
@@ -39,11 +34,6 @@ const Footer: FC<FooterProps> = ({ siteTitle }) => {
             platform="LinkedIn"
             Icon={BrandLinkedin}
             link="https://www.linkedin.com/in/jlamoreaux/"
-          />
-          <SocialLink
-            platform="Email"
-            Icon={Mail}
-            link="mailto:jordan@jlamoreaux.com"
           />
         </div>
       </div>

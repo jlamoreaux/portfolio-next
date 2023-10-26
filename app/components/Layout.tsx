@@ -1,5 +1,5 @@
 "use client";
-import { useState, ReactNode, FC } from "react";
+import { ReactNode, FC } from "react";
 import Head from "next/head";
 import { useTheme } from "next-themes";
 import {
@@ -17,7 +17,8 @@ interface Props {
 
 const Layout: FC<Props> = ({ children }) => {
   const { theme, setTheme } = useTheme();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  let isMenuOpen = false;
+  const setIsMenuOpen = (value: boolean) => isMenuOpen = value;
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");

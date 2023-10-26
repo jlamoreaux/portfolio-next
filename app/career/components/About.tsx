@@ -1,5 +1,4 @@
-import { generateTextFromBlocks } from "@/app/components/TextBodyFromSanity";
-import { getAboutMe } from "@/app/lib/api";
+import SanityText from "@/app/components/SanityText";
 import { generateSanityImageUrl } from "@/app/lib/sanity";
 import { PostBody, PostBodyImage } from "@/app/lib/types";
 import Image from "next/image";
@@ -11,7 +10,6 @@ type AboutProps = {
 };
 
 function About({ title, aboutMeText, image }: AboutProps) {
-  const textBlocks = generateTextFromBlocks(aboutMeText);
   return (
     <div className="flex flex-col justify-center items-center w-full h-full p-4 text-justify">
       {image && (
@@ -22,7 +20,7 @@ function About({ title, aboutMeText, image }: AboutProps) {
           height={200}
         />
       )}
-      <div className="py-4">{textBlocks.body}</div>
+      <div className="py-4"><SanityText value={aboutMeText} /></div>
     </div>
   );
 }

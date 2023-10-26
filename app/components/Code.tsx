@@ -1,25 +1,26 @@
-"use client"
-import { FC } from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { PortableTextComponentProps, PortableTextReactComponents, PortableTextTypeComponentProps } from "@portabletext/react";
+import React, { FC } from "react";
+import Refractor from "react-refractor";
+import js from "refractor/lang/javascript";
+import ts from "refractor/lang/typescript";
 
-type CodeProps = {
-  codeString: string;
-  language: "javascript" | "typescript";
-};
+Refractor.registerLanguage(js);
+Refractor.registerLanguage(ts);
 
-const Code: FC<CodeProps> = ({ codeString, language, ...props }) => {
+type CodeProps = PortableTextComponentProps<{
+  code: string;
+  language?: string;
+  highlightedLines?: number[];
+}>;
+
+const Code: FC<CodeProps> = ({value}) => {
   return (
-    <SyntaxHighlighter
-      style={vscDarkPlus}
-      language={language}
-      wrapLongLines={true}
-      customStyle={{ fontSize: "0.8rem" }}
-      PreTag="div"
-      {...props}
-    >
-      {codeString}
-    </SyntaxHighlighter>
+      <Refractor
+        language={value.language || "js"}
+        value={value.code}
+        markers={value.highlightedLines || []}
+        className="text-sm"
+      />
   );
 };
 
