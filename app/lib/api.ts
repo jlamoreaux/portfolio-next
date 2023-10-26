@@ -10,6 +10,8 @@ import {
 import { cache } from "react";
 import { PostBody } from "./types";
 
+const { signal } = new AbortController();
+
 export const getPost = async (slug: string) => {
   const post = (await client.fetch(
     groq`*[_type == "post" && slug.current == $slug][0]{
@@ -21,7 +23,7 @@ export const getPost = async (slug: string) => {
       excerpt,
       body
     }`,
-    { slug }
+    { slug, signal }
   )) as Post;
 
   return post;
