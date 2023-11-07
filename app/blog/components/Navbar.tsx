@@ -2,17 +2,20 @@
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { GroupedPosts } from "../layout";
+import { useState } from "react";
 
-const Navbar = ({ groupedPosts }: { groupedPosts: GroupedPosts[] }) => {
-  let expandedCategory = "";
+const Navbar = ({ groupedPosts }: { groupedPosts: GroupedPosts[]; }) => {
+  const [expandedCategory, setExpandedCategory] = useState<string | null>();
   const params = useParams();
 
   const handleCategoryClick = (slug: string) => {
+    console.log({ expandedCategory, slug })
     if (expandedCategory === slug) {
-      expandedCategory = "";
+      setExpandedCategory(null);
       return;
     }
-    return expandedCategory = slug;
+    setExpandedCategory(slug);
+    return;
   };
 
   const categories = groupedPosts.map((group) => ({
@@ -48,7 +51,7 @@ const Navbar = ({ groupedPosts }: { groupedPosts: GroupedPosts[] }) => {
                         >
                           <Link
                             href={`/blog/${post.slug}`}
-                            className={`text-gray-700 hover:text-gray-900 text-sm leading-none
+                            className={`text-gray-600 hover:text-black text-sm leading-none
                             ${params.slug === post.slug ? "font-bold" : ""}
                             `}
                           >

@@ -8,7 +8,7 @@ const BlogList = async () => {
   return (
     <div className="p-4">
       <PageHeading>Documentation</PageHeading>
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-col justify-around">
         {posts.length > 0 &&
           posts.map((post) => (
             <Card

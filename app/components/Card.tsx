@@ -21,7 +21,7 @@ const Card: FC<CardProps> = ({
   linkText,
 }) => {
   return (
-    <div className="border border-gray-200 shadow-md rounded-md overflow-hidden">
+    <div className="border border-gray-200 shadow-md rounded-md overflow-hidden m-2 w-full">
       <Image
         className="w-full h-48 object-cover"
         src={imageSrc}
