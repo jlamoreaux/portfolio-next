@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { useState } from "react";
 import { Menu } from "tabler-icons-react";
 
 export type NavLink = {
@@ -11,10 +13,13 @@ type NavigationProps = {
 };
 
 const Navigation = ({ navLinks }: NavigationProps) => {
-  let mobileMenuOpen = false;
-  const setMobileMenuOpen = (value: boolean) => (mobileMenuOpen = value);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+  const toggleMobileMenu = () => {
+    console.log({ mobileMenuOpen });
+    setMobileMenuOpen(!mobileMenuOpen);
+    console.log("state changed", { mobileMenuOpen });
+  };
 
   return (
     <nav className="bg-gray-800">
@@ -74,6 +79,7 @@ const Navigation = ({ navLinks }: NavigationProps) => {
               key={link.href}
               href={link.href}
               className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+              onClick={() => setMobileMenuOpen(false)}
             >
               {link.label}
             </Link>
