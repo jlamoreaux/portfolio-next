@@ -21,13 +21,13 @@ const ProjectDetails: FC<Props> = ({
 }) => {
   return (
     <div
-      className={`absolute bottom-0 left-0 p-6 w-full h-full flex-auto flex flex-col flex-end justify-end bg-gradient-to-b from-transparent from-20% to-white to-75% transform transition-transform duration-300 ${
+      className={`absolute bottom-0 left-0 p-6 w-full h-full flex-auto flex flex-col flex-end justify-end bg-gradient-to-b from-transparent from-5% to-white to-80% transform transition-transform duration-300 ${
         isHovered ? "md:translate-y-0" : "md:translate-y-12"
       }`}
     >
       <div>
         <h3 className="text-lg font-medium text-gray-900 mb-2">{title}</h3>
-        <p className="text-base text-gray-500 mb-4">{description}</p>
+        <p className="text-base text-gray-700 mb-4">{description}</p>
       </div>
       <div
         className={`flex items-center space-x-4 transition-opacity duration-300 sm:opacity-100 ${
