@@ -1,15 +1,14 @@
 "use client";
-import Link from "next/link";
 import { useParams } from "next/navigation";
-import { GroupedPosts } from "../layout";
 import { useState } from "react";
+import Link from "next/link";
+import { GroupedPosts } from "../layout";
 
 const Navbar = ({ groupedPosts }: { groupedPosts: GroupedPosts[]; }) => {
-  const [expandedCategory, setExpandedCategory] = useState<string | null>();
   const params = useParams();
+  const [expandedCategory, setExpandedCategory] = useState<string | null>();
 
   const handleCategoryClick = (slug: string) => {
-    console.log({ expandedCategory, slug })
     if (expandedCategory === slug) {
       setExpandedCategory(null);
       return;
@@ -35,33 +34,23 @@ const Navbar = ({ groupedPosts }: { groupedPosts: GroupedPosts[]; }) => {
           >
             {category?.title}
             {expandedCategory === category.slug && (
-              <div>
-                <ul className="pl-4 mt-2">
-                  {groupedPosts
-                    .filter((selectedCategory) =>
-                      selectedCategory.posts.filter(
-                        (post) => post.slug === category.slug
-                      )
-                    )
-                    .map((category, i) =>
-                      category.posts.map((post) => (
-                        <li
-                          key={post.slug || category.title + i}
-                          className="mb-1"
-                        >
-                          <Link
-                            href={`/blog/${post.slug}`}
-                            className={`text-gray-600 hover:text-black text-sm leading-none
-                            ${params.slug === post.slug ? "font-bold" : ""}
-                            `}
-                          >
-                            {post.title}
-                          </Link>
-                        </li>
-                      ))
-                    )}
-                </ul>
-              </div>
+              <ul style={{ listStyle: "none" }} className="ml-4">
+                {groupedPosts
+                  .find((group) => group.slug === category.slug)
+                  ?.posts.map((post) => (
+                    <li key={post.slug}
+                      style={{
+                        marginLeft: "0.5rem",
+                        marginBottom: "0.25rem",
+                        textIndent: "-0.5rem",
+                      }}
+                    >
+                      <Link href={`/blog/${post.slug}`} className={`text-gray-600 hover:text-black text-sm ${post.slug === params.slug ? "font-bold" : "font-normal"}`}>
+                          {post.title}
+                      </Link>
+                    </li>
+                  ))}
+              </ul>
             )}
           </div>
         ))}
