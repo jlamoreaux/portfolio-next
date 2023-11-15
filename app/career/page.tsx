@@ -17,8 +17,12 @@ const Experience = async () => {
         aboutMeText={AboutData?.aboutMeText}
         image={AboutData?.image}
       />
-      <h2 className="text-3xl font-bold text-center pb-4">My Career</h2>
-      <Timeline experience={experience} />
+      {experience.length > 0 && (
+        <>
+          <h2 className="text-3xl font-bold text-center pb-4">My Career</h2>
+          <Timeline experience={experience} />
+        </>
+      )}
     </PageContainer>
   );
 };
