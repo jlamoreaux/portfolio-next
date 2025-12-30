@@ -161,7 +161,7 @@ const InteractiveTimeline = ({ experience }: InteractiveTimelineProps) => {
                       }`}
                     >
                       <div className="border-t border-slate-200 pt-6">
-                        {exp.description && exp.description.length > 0 ? (
+                        {exp.description && exp.description.length > 0 && (
                           <>
                             <h4 className="text-sm font-semibold text-slate-900 mb-3 uppercase tracking-wide">
                               Key Responsibilities & Achievements
@@ -185,10 +185,6 @@ const InteractiveTimeline = ({ experience }: InteractiveTimelineProps) => {
                               ))}
                             </ul>
                           </>
-                        ) : (
-                          <p className="text-slate-500 text-sm italic">
-                            Add responsibilities to your Sanity workExperience document to see details here.
-                          </p>
                         )}
                       </div>
                     </div>
