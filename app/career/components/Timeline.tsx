@@ -26,8 +26,10 @@ const Timeline = ({ experience }: { experience: WorkExperience[] }) => {
         <div className="flex flex-row md:flex-col justify-around max-h-96 w-full md:w-40">
           <div
             className={`${
-              activeIndex <= 0 ? "opacity-50" : "cursor-pointer"
-            } flex flex-row justify-center items-center transition duration-500 ease-in-out`}
+              activeIndex <= 0
+                ? "opacity-30 cursor-not-allowed"
+                : "cursor-pointer hover:text-primary-600"
+            } flex flex-row justify-center items-center transition-all duration-300 ease-in-out text-slate-600`}
           >
             <ArrowUp
               className="-rotate-90 md:rotate-0"
@@ -44,8 +46,10 @@ const Timeline = ({ experience }: { experience: WorkExperience[] }) => {
           ))}
           <div
             className={`${
-              activeIndex >= 2 ? "opacity-50" : "cursor-pointer"
-            } flex flex-row justify-center items-center transition duration-500 ease-in-out`}
+              activeIndex >= 2
+                ? "opacity-30 cursor-not-allowed"
+                : "cursor-pointer hover:text-primary-600"
+            } flex flex-row justify-center items-center transition-all duration-300 ease-in-out text-slate-600`}
           >
             <ArrowDown
               className="-rotate-90 md:rotate-0"

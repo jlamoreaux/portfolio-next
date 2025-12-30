@@ -1,51 +1,75 @@
-@tailwind base;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-h1 {
-  @apply text-2xl;
-  /* padding: 1.2rem 0 0.6rem 0; */
-  font-weight: 700;
-}
-h2 {
-  @apply text-xl;
-  margin-top: 1rem;
-  /* padding: 1rem 0 0.5rem 0; */
-  font-weight: 600;
-}
-h3 {
-  @apply text-lg;
-  margin-top: 0.8rem;
-  /* padding: 0.8rem 0 0.4rem 0; */
-  font-weight: 500;
-}
-h4 {
-  @apply text-base;
-  margin-top: 0.6rem;
-  /* padding: 0.6rem 0 0.3rem 0; */
-  font-weight: 400;
-}
-h5 {
-  @apply text-sm;
-  margin-top: 0.4rem;
-  /* padding: 0.4rem 0 0.2rem 0; */
-  font-weight: 300;
-}
-h6 {
-  @apply text-xs;
-  margin-top: 0.2rem;
-  /* padding: 0.2rem 0 0.1rem 0; */
-  font-weight: 200;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900;
+    @apply antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl font-display font-bold;
+    @apply text-slate-900 leading-tight tracking-tight;
+    margin-top: 0;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-display font-bold;
+    @apply text-slate-800 leading-tight tracking-tight;
+    margin-top: 2rem;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-display font-semibold;
+    @apply text-slate-800 leading-snug;
+    margin-top: 1.5rem;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl font-display font-semibold;
+    @apply text-slate-700 leading-snug;
+    margin-top: 1.25rem;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl font-display font-medium;
+    @apply text-slate-700 leading-normal;
+    margin-top: 1rem;
+  }
+
+  h6 {
+    @apply text-base md:text-lg font-display font-medium;
+    @apply text-slate-600 leading-normal;
+    margin-top: 0.75rem;
+  }
+
+  p {
+    @apply text-slate-600 leading-relaxed;
+  }
+
+  article > p {
+    @apply my-4 text-slate-700 leading-relaxed;
+  }
+
+  a {
+    @apply text-primary-600 hover:text-primary-700 transition-colors;
+    @apply underline-offset-4;
+  }
+
+  strong {
+    @apply font-semibold text-slate-900;
+  }
 }
 
 code[class*="language-"].text-sm,
-pre[class*="language-"].text-sm 
-{
-  
+pre[class*="language-"].text-sm {
   font-size: 0.8rem;
-};
-
-article > p {
-  margin: 1em 0;
 }
-
-@tailwind components;
-@tailwind utilities;

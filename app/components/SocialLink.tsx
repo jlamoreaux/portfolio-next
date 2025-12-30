@@ -13,7 +13,7 @@ const SocialLink: FC<SocialLinkProps> = ({ platform, Icon, link }) => {
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-gray-500 hover:text-gray-600 transition-colors duration-200"
+      className="text-slate-500 hover:text-primary-600 transition-all duration-200 hover:scale-110 inline-block"
     >
       <span className="sr-only">{platform}</span>
       <Icon className="w-6 h-6" />

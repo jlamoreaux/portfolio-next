@@ -6,7 +6,7 @@ type PageHeadingProps = {
 
 const PageHeading: FC<PageHeadingProps> = ({ children }) => {
   return (
-    <h2 className="my-8 text-4xl sm:text-5xl font-bold leading-tight text-center text-gray-800">
+    <h2 className="my-12 text-4xl sm:text-6xl font-display font-bold leading-tight text-center text-slate-900 tracking-tight">
       {children}
     </h2>
   );

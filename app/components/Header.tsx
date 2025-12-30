@@ -25,24 +25,26 @@ const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="bg-gray-800">
-      <nav className="container mx-auto flex items-center justify-between p-5">
-        <Link href="/" className="text-white text-2xl font-bold">
+    <header className="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-50 backdrop-blur-sm bg-white/95">
+      <nav className="container mx-auto flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10 py-4">
+        <Link href="/" className="text-slate-900 text-2xl font-bold group">
           <div
             className="flex items-center"
             onMouseEnter={handleLogoHover}
             onMouseLeave={handleLogoLeave}
           >
-            <Image
-              src="/images/logo-white.png"
-              width="48"
-              height="48"
-              alt="Logo"
-              className={`mr-4 ${isLogoHovered ? "animate-spin-y" : ""}`}
-            />
+            <div className="mr-4 p-2 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 shadow-md group-hover:shadow-lg transition-shadow duration-300">
+              <Image
+                src="/images/logo-white.png"
+                width="48"
+                height="48"
+                alt="Logo"
+                className={`${isLogoHovered ? "animate-spin-y" : ""}`}
+              />
+            </div>
             <div>
-              <h1 className="mt-0">{siteName}</h1>
-              <h2 className="text-xl font-normal mt-0">{siteSubtitle}</h2>
+              <h1 className="mt-0 text-2xl font-display font-bold text-slate-900 group-hover:text-primary-600 transition-colors">{siteName}</h1>
+              <h2 className="text-sm font-medium text-slate-500 mt-0 group-hover:text-accent-600 transition-colors">{siteSubtitle}</h2>
             </div>
           </div>
         </Link>

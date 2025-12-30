@@ -14,27 +14,29 @@ interface FooterProps {
 
 const Footer: FC<FooterProps> = ({ siteTitle }) => {
   return (
-    <footer className="bg-gray-900 text-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <p>
-          © {new Date().getFullYear()} {siteTitle}
-        </p>
-        <div className="flex items-center">
-          <SocialLink
-            platform="Twitter"
-            Icon={BrandTwitter}
-            link="https://twitter.com/jlmx_in_atx"
-          />
-          <SocialLink
-            platform="GitHub"
-            Icon={BrandGithub}
-            link="https://github.com/jlamoreaux"
-          />
-          <SocialLink
-            platform="LinkedIn"
-            Icon={BrandLinkedin}
-            link="https://www.linkedin.com/in/jlamoreaux/"
-          />
+    <footer className="bg-white border-t border-slate-200">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-8">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-slate-600 text-sm">
+            © {new Date().getFullYear()} {siteTitle}. All rights reserved.
+          </p>
+          <div className="flex items-center gap-6">
+            <SocialLink
+              platform="Twitter"
+              Icon={BrandTwitter}
+              link="https://twitter.com/jlmx_in_atx"
+            />
+            <SocialLink
+              platform="GitHub"
+              Icon={BrandGithub}
+              link="https://github.com/jlamoreaux"
+            />
+            <SocialLink
+              platform="LinkedIn"
+              Icon={BrandLinkedin}
+              link="https://www.linkedin.com/in/jlamoreaux/"
+            />
+          </div>
         </div>
       </div>
     </footer>
