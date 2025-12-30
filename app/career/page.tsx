@@ -2,7 +2,7 @@ import { WorkExperience } from "../lib/types";
 import PageHeading from "../components/PageHeading";
 import { PageContainer } from "../components/PageContainer";
 import { getAboutMe, getWorkExperience } from "../lib/api";
-import Timeline from "./components/Timeline";
+import InteractiveTimeline from "./components/InteractiveTimeline";
 import About from "./components/About";
 
 const Experience = async () => {
@@ -19,8 +19,13 @@ const Experience = async () => {
       />
       {experience.length > 0 && (
         <>
-          <h2 className="text-3xl font-bold text-center pb-4">My Career</h2>
-          <Timeline experience={experience} />
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-center text-slate-900 mb-4">
+            My Career Journey
+          </h2>
+          <p className="text-center text-slate-600 text-lg max-w-2xl mx-auto mb-8">
+            Click on any role to explore what I accomplished and the impact I made.
+          </p>
+          <InteractiveTimeline experience={experience} />
         </>
       )}
     </PageContainer>
