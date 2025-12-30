@@ -103,7 +103,6 @@ export const getWorkExperience = async () => {
   }`;
   try {
     const data = await client.fetch(query);
-    console.log("Sanity raw response:", data);
     return data || [];
   } catch (error) {
     console.error("Error fetching work experience:", error);

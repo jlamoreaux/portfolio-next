@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Menu } from "tabler-icons-react";
 
 export type NavLink = {
@@ -14,11 +15,10 @@ type NavigationProps = {
 
 const Navigation = ({ navLinks }: NavigationProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMobileMenu = () => {
-    console.log({ mobileMenuOpen });
     setMobileMenuOpen(!mobileMenuOpen);
-    console.log("state changed", { mobileMenuOpen });
   };
 
   return (
@@ -26,15 +26,22 @@ const Navigation = ({ navLinks }: NavigationProps) => {
       <div className="flex items-center">
         <div className="hidden md:block">
           <div className="flex items-center space-x-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="px-4 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    isActive
+                      ? "text-primary-700 bg-primary-100"
+                      : "text-slate-700 hover:text-primary-600 hover:bg-primary-50"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
         </div>
         <div className="flex md:hidden">
@@ -72,16 +79,23 @@ const Navigation = ({ navLinks }: NavigationProps) => {
         } md:hidden bg-white border-t border-slate-200 shadow-lg`}
       >
         <div className="bg-white left-0 px-4 py-3 z-50 absolute w-full top-full">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="block px-4 py-3 rounded-lg text-base font-medium text-slate-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
+                  isActive
+                    ? "text-primary-700 bg-primary-100"
+                    : "text-slate-700 hover:text-primary-600 hover:bg-primary-50"
+                }`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </nav>
