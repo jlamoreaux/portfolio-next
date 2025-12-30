@@ -146,36 +146,45 @@ const InteractiveProjectCard = ({
 
           {/* Links - always visible when expanded, hidden when collapsed */}
           <div
-            className={`flex items-center gap-4 transition-all duration-500 ${
+            className={`flex flex-col gap-3 transition-all duration-500 ${
               isExpanded
                 ? "opacity-100 translate-y-0 mt-4"
                 : "opacity-0 translate-y-4 h-0 overflow-hidden"
             }`}
           >
-            {project.liveDemoUrl && (
-              <Link
-                href={project.liveDemoUrl}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm font-medium"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <Globe size={18} />
-                View Live
-              </Link>
-            )}
-            {project.sourceCodeUrl && (
-              <Link
-                href={project.sourceCodeUrl}
-                className="inline-flex items-center gap-2 px-4 py-2 border-2 border-slate-300 text-slate-700 rounded-lg hover:border-primary-400 hover:text-primary-700 transition-colors text-sm font-medium"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <BrandGithub size={18} />
-                Source Code
-              </Link>
-            )}
+            <Link
+              href={`/portfolio/${project.slug}`}
+              className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm font-medium"
+              onClick={(e) => e.stopPropagation()}
+            >
+              View Full Details →
+            </Link>
+            <div className="flex items-center gap-3">
+              {project.liveDemoUrl && (
+                <Link
+                  href={project.liveDemoUrl}
+                  className="inline-flex items-center gap-2 px-4 py-2 text-primary-600 hover:text-primary-700 transition-colors text-sm font-medium"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <Globe size={18} />
+                  Live Demo
+                </Link>
+              )}
+              {project.sourceCodeUrl && (
+                <Link
+                  href={project.sourceCodeUrl}
+                  className="inline-flex items-center gap-2 px-4 py-2 text-slate-600 hover:text-primary-700 transition-colors text-sm font-medium"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <BrandGithub size={18} />
+                  Code
+                </Link>
+              )}
+            </div>
           </div>
 
           {/* Expand hint when not expanded */}

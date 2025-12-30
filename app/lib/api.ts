@@ -81,6 +81,22 @@ export const getAllProjects = async () => {
   return projects;
 };
 
+export const getProject = async (slug: string) => {
+  const project: Project = await client.fetch(
+    `*[_type == "project" && slug.current == $slug][0]{
+      title,
+      "slug": slug.current,
+      coverImage,
+      "description": description,
+      sourceCodeUrl,
+      liveDemoUrl,
+    }`,
+    { slug }
+  );
+
+  return project;
+};
+
 export const getHomePageData = async (): Promise<LandingPageData> => {
   const query = `*[_type == "landingPage"][0] {
       welcomeText,

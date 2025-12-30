@@ -38,7 +38,7 @@ const AboutPage = async () => {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
-              href="mailto:jordan@jordanlamoreaux.com"
+              href="mailto:jordan@jlamoreaux.com"
               className="px-6 py-3 bg-primary-600 text-white rounded-xl font-medium hover:bg-primary-700 transition-all shadow-md hover:shadow-lg hover:scale-105"
             >
               Get In Touch
