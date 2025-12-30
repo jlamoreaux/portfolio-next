@@ -43,35 +43,46 @@ const InteractiveTimeline = ({ experience }: InteractiveTimelineProps) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      <div className="relative">
-        {/* Vertical line */}
-        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-200" />
+    <>
+      <style jsx global>{`
+        @keyframes fadeInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        @keyframes fadeInItem {
+          from {
+            opacity: 0;
+            transform: translateY(5px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="relative">
+          {/* Vertical line */}
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-200" />
 
-        {sortedExperience.map((exp, index) => {
-          const isExpanded = expandedIndex === index;
-          const isCurrent = !exp.endDate;
+          {sortedExperience.map((exp, index) => {
+            const isExpanded = expandedIndex === index;
+            const isCurrent = !exp.endDate;
 
-          return (
-            <div
-              key={index}
-              className="relative mb-8 last:mb-0"
-              style={{
-                animation: `fadeInLeft 0.5s ease-out ${index * 0.1}s both`,
-              }}
-            >
-              <style jsx>{`
-                @keyframes fadeInLeft {
-                  from {
-                    opacity: 0;
-                    transform: translateX(-20px);
-                  }
-                  to {
-                    opacity: 1;
-                    transform: translateX(0);
-                  }
-                }
-              `}</style>
+            return (
+              <div
+                key={index}
+                className="relative mb-8 last:mb-0"
+                style={{
+                  animation: `fadeInLeft 0.5s ease-out ${index * 0.1}s both`,
+                }}
+              >
 
               {/* Timeline dot */}
               <div className="absolute left-8 top-6 -translate-x-1/2 z-10">
@@ -160,22 +171,10 @@ const InteractiveTimeline = ({ experience }: InteractiveTimelineProps) => {
                               className="flex items-start gap-3"
                               style={{
                                 animation: isExpanded
-                                  ? `fadeIn 0.3s ease-out ${idx * 0.05}s both`
+                                  ? `fadeInItem 0.3s ease-out ${idx * 0.05}s both`
                                   : "none",
                               }}
                             >
-                              <style jsx>{`
-                                @keyframes fadeIn {
-                                  from {
-                                    opacity: 0;
-                                    transform: translateY(5px);
-                                  }
-                                  to {
-                                    opacity: 1;
-                                    transform: translateY(0);
-                                  }
-                                }
-                              `}</style>
                               <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-primary-500 mt-2" />
                               <p className="text-slate-700 leading-relaxed flex-1">
                                 {item}
@@ -188,11 +187,12 @@ const InteractiveTimeline = ({ experience }: InteractiveTimelineProps) => {
                   </div>
                 </button>
               </div>
-            </div>
-          );
-        })}
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
