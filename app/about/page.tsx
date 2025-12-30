@@ -31,10 +31,10 @@ const AboutPage = async () => {
       <div className="mt-16 mb-8">
         <div className="max-w-2xl mx-auto bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl p-8 md:p-12 text-center border border-primary-100">
           <h3 className="text-2xl md:text-3xl font-display font-bold text-slate-900 mb-4">
-            Let's Work Together
+            Let&apos;s Work Together
           </h3>
           <p className="text-slate-600 mb-6">
-            Interested in collaborating? I'd love to hear about your project.
+            Interested in collaborating? I&apos;d love to hear about your project.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
