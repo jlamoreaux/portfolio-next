@@ -92,15 +92,18 @@ export const getHomePageData = async (): Promise<LandingPageData> => {
 };
 
 export const getWorkExperience = async () => {
-  const query = `*[_type == "workExperience"]{
+  const query = `*[_type == "workExperience"] | order(startDate desc) {
     title,
     company,
     startDate,
     endDate,
     description,
+    responsibilities,
+    "description": coalesce(description, responsibilities, [])
   }`;
   try {
     const data = await client.fetch(query);
+    console.log("Sanity raw response:", data);
     return data || [];
   } catch (error) {
     console.error("Error fetching work experience:", error);

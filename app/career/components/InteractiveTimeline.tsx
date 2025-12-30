@@ -161,27 +161,35 @@ const InteractiveTimeline = ({ experience }: InteractiveTimelineProps) => {
                       }`}
                     >
                       <div className="border-t border-slate-200 pt-6">
-                        <h4 className="text-sm font-semibold text-slate-900 mb-3 uppercase tracking-wide">
-                          Key Responsibilities & Achievements
-                        </h4>
-                        <ul className="space-y-3">
-                          {exp.description.map((item, idx) => (
-                            <li
-                              key={idx}
-                              className="flex items-start gap-3"
-                              style={{
-                                animation: isExpanded
-                                  ? `fadeInItem 0.3s ease-out ${idx * 0.05}s both`
-                                  : "none",
-                              }}
-                            >
-                              <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-primary-500 mt-2" />
-                              <p className="text-slate-700 leading-relaxed flex-1">
-                                {item}
-                              </p>
-                            </li>
-                          ))}
-                        </ul>
+                        {exp.description && exp.description.length > 0 ? (
+                          <>
+                            <h4 className="text-sm font-semibold text-slate-900 mb-3 uppercase tracking-wide">
+                              Key Responsibilities & Achievements
+                            </h4>
+                            <ul className="space-y-3">
+                              {exp.description.map((item, idx) => (
+                                <li
+                                  key={idx}
+                                  className="flex items-start gap-3"
+                                  style={{
+                                    animation: isExpanded
+                                      ? `fadeInItem 0.3s ease-out ${idx * 0.05}s both`
+                                      : "none",
+                                  }}
+                                >
+                                  <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-primary-500 mt-2" />
+                                  <p className="text-slate-700 leading-relaxed flex-1">
+                                    {item}
+                                  </p>
+                                </li>
+                              ))}
+                            </ul>
+                          </>
+                        ) : (
+                          <p className="text-slate-500 text-sm italic">
+                            Add responsibilities to your Sanity workExperience document to see details here.
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>
