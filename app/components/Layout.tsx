@@ -42,6 +42,7 @@ const Layout: FC<Props> = ({ children }) => {
           navLinks={[
             { href: "/blog", label: "Docs" },
             { href: "/portfolio", label: "Portfolio" },
+            { href: "/about", label: "About" },
             { href: "/career", label: "Career" },
           ]}
         />
