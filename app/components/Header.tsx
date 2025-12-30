@@ -33,7 +33,7 @@ const Header: React.FC<HeaderProps> = ({
             onMouseEnter={handleLogoHover}
             onMouseLeave={handleLogoLeave}
           >
-            <div className="mr-4 p-2 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 shadow-md group-hover:shadow-lg transition-shadow duration-300">
+            <div className="mr-4 p-2 rounded-xl bg-primary-600 shadow-sm group-hover:shadow-md transition-all duration-300">
               <Image
                 src="/images/logo-white.png"
                 width="48"
