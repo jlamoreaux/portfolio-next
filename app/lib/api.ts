@@ -99,8 +99,13 @@ export const getWorkExperience = async () => {
     endDate,
     description,
   }`;
-  const data = await client.fetch(query);
-  return data;
+  try {
+    const data = await client.fetch(query);
+    return data || [];
+  } catch (error) {
+    console.error("Error fetching work experience:", error);
+    return [];
+  }
 };
 
 export const getAboutMe = async () => {
