@@ -26,6 +26,33 @@ const AboutPage = async () => {
         aboutMeText={AboutData?.aboutMeText}
         image={AboutData?.image}
       />
+
+      {/* Contact CTA */}
+      <div className="mt-16 mb-8">
+        <div className="max-w-2xl mx-auto bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl p-8 md:p-12 text-center border border-primary-100">
+          <h3 className="text-2xl md:text-3xl font-display font-bold text-slate-900 mb-4">
+            Let's Work Together
+          </h3>
+          <p className="text-slate-600 mb-6">
+            Interested in collaborating? I'd love to hear about your project.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a
+              href="mailto:jordan@jordanlamoreaux.com"
+              className="px-6 py-3 bg-primary-600 text-white rounded-xl font-medium hover:bg-primary-700 transition-all shadow-md hover:shadow-lg hover:scale-105"
+            >
+              Get In Touch
+            </a>
+            <a
+              href="/resume.pdf"
+              download
+              className="px-6 py-3 bg-white text-primary-700 border-2 border-primary-200 rounded-xl font-medium hover:border-primary-400 hover:bg-primary-50 transition-all"
+            >
+              Download Resume
+            </a>
+          </div>
+        </div>
+      </div>
     </PageContainer>
   );
 };
