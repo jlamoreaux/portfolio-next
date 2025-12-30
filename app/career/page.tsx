@@ -1,8 +1,20 @@
+import { Metadata } from "next";
 import { WorkExperience } from "../lib/types";
 import PageHeading from "../components/PageHeading";
 import { PageContainer } from "../components/PageContainer";
 import { getWorkExperience } from "../lib/api";
 import InteractiveTimeline from "./components/InteractiveTimeline";
+import { SITE_TITLE } from "@/site.config";
+
+export const metadata: Metadata = {
+  title: `Career | ${SITE_TITLE}`,
+  description: "Explore Jordan Lamoreaux's professional journey - from Support Engineer to Software Engineer, with experience at Atlassian, Edlio, and more.",
+  openGraph: {
+    title: `Career | ${SITE_TITLE}`,
+    description: "Explore Jordan Lamoreaux's professional journey - from Support Engineer to Software Engineer, with experience at Atlassian, Edlio, and more.",
+    type: "website",
+  },
+};
 
 const Experience = async () => {
   const experience: WorkExperience[] = await getWorkExperience();

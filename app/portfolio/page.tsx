@@ -1,7 +1,19 @@
+import { Metadata } from "next";
 import PageHeading from "../components/PageHeading";
 import { PageContainer } from "../components/PageContainer";
 import { getAllProjects } from "../lib/api";
 import PortfolioGrid from "./components/PortfolioGrid";
+import { SITE_TITLE } from "@/site.config";
+
+export const metadata: Metadata = {
+  title: `Portfolio | ${SITE_TITLE}`,
+  description: "Explore my portfolio of web development projects, showcasing modern applications built with React, Next.js, TypeScript, and more.",
+  openGraph: {
+    title: `Portfolio | ${SITE_TITLE}`,
+    description: "Explore my portfolio of web development projects, showcasing modern applications built with React, Next.js, TypeScript, and more.",
+    type: "website",
+  },
+};
 
 const Portfolio = async () => {
   const projects = await getAllProjects();
